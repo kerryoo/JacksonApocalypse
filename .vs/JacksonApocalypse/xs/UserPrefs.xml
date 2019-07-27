@@ -1,0 +1,56 @@
+﻿<Properties StartupConfiguration="{23B605A0-080C-C897-E5B6-FCC7D9F8018F}|Unit Tests">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/unity-chan!/Unity-chan! Model/Scripts/UnityChanControlScriptWithRgidBody.cs">
+    <Files>
+      <File FileName="Assets/unity-chan!/Unity-chan! Model/Scripts/AutoBlink.cs" Line="126" Column="4" />
+      <File FileName="Assets/unity-chan!/Unity-chan! Model/Scripts/ThirdPersonCamera.cs" Line="19" Column="9" />
+      <File FileName="Assets/Scripts/InputController.cs" Line="17" Column="1" />
+      <File FileName="Assets/Scripts/Player.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ThirdPersonCamera.cs" Line="1" Column="1" />
+      <File FileName="Assets/unity-chan!/Unity-chan! Model/Scripts/CameraController.cs" Line="1" Column="1" />
+      <File FileName="Assets/unity-chan!/Unity-chan! Model/Scripts/IdleChanger.cs" Line="16" Column="15" />
+      <File FileName="Assets/unity-chan!/Unity-chan! Model/Scripts/SpringCollider.cs" Line="1" Column="1" />
+      <File FileName="Assets/unity-chan!/Unity-chan! Model/Scripts/SpringBone.cs" Line="1" Column="1" />
+      <File FileName="Assets/unity-chan!/Unity-chan! Model/Scripts/SpringManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/unity-chan!/Unity-chan! Model/Scripts/UnityChanControlScriptWithRgidBody.cs" Line="179" Column="4" />
+      <File FileName="Assets/unity-chan!/Unity-chan! Model/Scripts/RandomWind.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="JacksonApocalypse" expanded="True">
+            <Node name="Assembly-CSharp" expanded="True">
+              <Node name="Assets" expanded="True">
+                <Node name="Scripts" expanded="True" />
+                <Node name="unity-chan!" expanded="True">
+                  <Node name="Unity-chan! Model" expanded="True">
+                    <Node name="Scripts" expanded="True">
+                      <Node name="UnityChanControlScriptWithRgidBody.cs" selected="True" />
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State name="__root__">
+          <Node name="JacksonApocalypse" expanded="True">
+            <Node name="Assembly-CSharp" expanded="True">
+              <Node name="UnityChan" expanded="True">
+                <Node name="UnityChan.IdleChanger" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp-Editor PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
