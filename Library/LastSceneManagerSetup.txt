@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Runemark Studio/Freebies/PolyDesert Mobile/DesertScene_mobile.unity
+- path: Assets/MasterScene.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

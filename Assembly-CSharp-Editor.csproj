@@ -53,7 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\unity-chan!\Unity-chan! Model\Editor\CreateLocatorHere.cs" />
+     <Compile Include="Assets\Imported Assets\unity-chan!\Unity-chan! Model\Editor\CreateLocatorHere.cs" />
  <Reference Include="UnityEditor.TestRunner">
  <HintPath>/Users/kerryoo/JacksonApocalypse/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
  </Reference>
