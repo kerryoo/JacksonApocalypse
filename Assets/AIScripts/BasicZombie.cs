@@ -5,24 +5,35 @@ using UnityEngine;
 public class BasicZombie : MonoBehaviour
 {
     [SerializeField] Animator animator;
+    [SerializeField] Animator zombieFSM;
     [SerializeField] int maxHealth;
     private SoundLibrary soundLibrary;
     private AudioSource soundSource;
     private float movementSpeed = 1.0f;
     private float rotationSpeed = 2.0f;
+
     private float targetPositionTolerance = 3.0f;
-    private float minX;
-    private float maxX;
+    private float minX = -10;
+    private float maxX = 10;
     private float minZ;
     private float maxZ;
-    private float yPosition;
+    private float yPosition = 10.25f;
     private Vector3 targetPosition;
+
     private Destructable destructable;
     private int damageMinForLargeSound;
     private bool alive;
 
+    public int fieldOfView = 45;
+    public int viewDistance = 10;
+    private Transform playerTransform;
+    private Vector3 rayDirection;
+
     float nextWalkingSound;
     float timeBetweenGrunt;
+
+    private float nextDetection;
+    private float detectionInterval;
 
     public class Destructable
     {
@@ -56,6 +67,8 @@ public class BasicZombie : MonoBehaviour
         soundSource = gameObject.GetComponent<AudioSource>();
         animator.SetBool("Walk", true);
 
+        playerTransform = GameObject.Find("Player").transform;
+
         GetNextPosition();
     }
 
@@ -80,15 +93,10 @@ public class BasicZombie : MonoBehaviour
             }
 
 
-
-            if (Input.GetKeyDown(KeyCode.P))
+            if (nextDetection <= Time.time)
             {
-                takeDamage(10);
-            }
-
-            if (Input.GetKeyDown(KeyCode.O))
-            {
-                takeDamage(2);
+                DetectAspect();
+                nextDetection = Time.time + detectionInterval;
             }
         }
 
@@ -113,6 +121,26 @@ public class BasicZombie : MonoBehaviour
                 soundSource.PlayOneShot(soundLibrary.GetRandomLowDamageSound());
         }
     }
+
+    private void DetectAspect()
+    {
+        RaycastHit hit;
+        rayDirection = playerTransform.position - transform.position;
+
+        if (Vector3.Angle(rayDirection, transform.forward) < fieldOfView)
+        {
+            if (Physics.Raycast(transform.position, rayDirection, out hit, viewDistance))
+            {
+                var player = hit.collider.GetComponent<Player>();
+                if (player != null)
+                {
+                    Debug.Log("Player detected");
+                }
+            }
+        }
+
+    }
+
 
     IEnumerator Die()
     {

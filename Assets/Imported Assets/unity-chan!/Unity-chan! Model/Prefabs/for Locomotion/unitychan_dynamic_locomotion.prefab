@@ -1471,6 +1471,7 @@ GameObject:
   - component: {fileID: 11400022}
   - component: {fileID: 11400112}
   - component: {fileID: 11400114}
+  - component: {fileID: 4131546361315976933}
   m_Layer: 0
   m_Name: unitychan_dynamic_locomotion
   m_TagString: Untagged
@@ -1691,6 +1692,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9001bcbd91e76437cb0f52f12764f2f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MouseControl:
+    Damping: {x: 0, y: 0}
+    Sensitivity: {x: 0, y: 0}
+  mouseInput: {x: 0, y: 0}
   animSpeed: 1.5
   lookSmoother: 3
   useCurves: 1
@@ -1733,6 +1738,18 @@ MonoBehaviour:
   timeBlink: 0.4
   threshold: 0.3
   interval: 3
+--- !u!114 &4131546361315976933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcb9fbcc115f74f3084c7b5c69eee1c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &100078
 GameObject:
   m_ObjectHideFlags: 0
