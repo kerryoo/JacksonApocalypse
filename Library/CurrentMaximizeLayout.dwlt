@@ -20,10 +20,10 @@ MonoBehaviour:
     y: 30
     width: 1550
     height: 893
-  m_MinSize: {x: 679, y: 492}
-  m_MaxSize: {x: 14002, y: 14042}
+  m_MinSize: {x: 677, y: 342}
+  m_MaxSize: {x: 12002, y: 8042}
   vertical: 1
-  controlID: 95
+  controlID: 7220
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -126,10 +126,10 @@ MonoBehaviour:
     y: 0
     width: 1550
     height: 893
-  m_MinSize: {x: 679, y: 492}
-  m_MaxSize: {x: 14002, y: 14042}
+  m_MinSize: {x: 677, y: 342}
+  m_MaxSize: {x: 12002, y: 8042}
   vertical: 0
-  controlID: 96
+  controlID: 7221
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -151,10 +151,10 @@ MonoBehaviour:
     y: 0
     width: 1132
     height: 893
-  m_MinSize: {x: 403, y: 492}
-  m_MaxSize: {x: 10001, y: 14042}
+  m_MinSize: {x: 402, y: 342}
+  m_MaxSize: {x: 8002, y: 8042}
   vertical: 1
-  controlID: 97
+  controlID: 7222
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -176,10 +176,10 @@ MonoBehaviour:
     y: 0
     width: 1132
     height: 576
-  m_MinSize: {x: 403, y: 221}
-  m_MaxSize: {x: 8003, y: 4021}
+  m_MinSize: {x: 402, y: 221}
+  m_MaxSize: {x: 8002, y: 4021}
   vertical: 0
-  controlID: 72
+  controlID: 7223
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -199,8 +199,8 @@ MonoBehaviour:
     y: 0
     width: 281
     height: 576
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 7}
   m_Panes:
   - {fileID: 7}
@@ -227,7 +227,7 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 130
+    x: 288
     y: 75
     width: 280
     height: 555
@@ -237,21 +237,21 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 82fbffff
+      m_ExpandedIDs: ccbeffffaaeefffff6eeffff82fbffff66480000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: FreeZombieSimpleMovement (4)
+        m_OriginalName: FreeZombieSimpleMovement (4)
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -16692
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 6}
       m_SearchString: 
@@ -311,7 +311,7 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 411
+    x: 569
     y: 75
     width: 849
     height: 555
@@ -326,9 +326,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 3.2524877, y: 9.843704, z: 0.92909765}
+    m_Target: {x: 10.48, y: 10.733, z: -7.05}
     speed: 2
-    m_Value: {x: 3.2524877, y: 9.843704, z: 0.92909765}
+    m_Value: {x: 10.48, y: 10.733, z: -7.05}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -358,13 +358,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.07824963, y: -0.119339846, z: 0.009435292, w: 0.9897209}
+    m_Target: {x: -0.006318709, y: -0.2897783, z: -0.0019128445, w: 0.95707315}
     speed: 2
-    m_Value: {x: 0.07824957, y: -0.119339764, z: 0.009435286, w: 0.98972017}
+    m_Value: {x: -0.0063186963, y: -0.2897777, z: -0.0019128406, w: 0.9570712}
   m_Size:
-    m_Target: 3.040162
+    m_Target: 1.7923584
     speed: 2
-    m_Value: 3.040162
+    m_Value: 1.7923584
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -514,10 +514,11 @@ MonoBehaviour:
       e32: 0
       e33: 1
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: 8d5a0e0d58f4e4176a844a1a03976c19,
+  m_AnimatorController: {fileID: 9100000, guid: c929656c07909194ab8a5cd79f5f371d,
     type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: 110700000, guid: 8d5a0e0d58f4e4176a844a1a03976c19, type: 2}
+  - m_Target: {fileID: 1107880670173146032, guid: c929656c07909194ab8a5cd79f5f371d,
+      type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
   stateMachineGraphGUI: {fileID: 0}
@@ -549,14 +550,14 @@ MonoBehaviour:
     y: 576
     width: 1132
     height: 317
-  m_MinSize: {x: 231, y: 271}
-  m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 13}
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 13}
   - {fileID: 14}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -578,7 +579,7 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 130
+    x: 19
     y: 651
     width: 1131
     height: 296
@@ -596,20 +597,20 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Imported Assets/Gauntlet Assets/Prefabs/Basic Pulse
+    - Assets
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Imported Assets/Gauntlet Assets/Prefabs/Basic Pulse
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /Users/kerryoo/JacksonApocalypse
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 47}
-    m_SelectedIDs: e03b0000
-    m_LastClickedID: 15328
-    m_ExpandedIDs: 00000000803b0000823b0000843b0000863b0000883b00008a3b00008c3b0000dc3b0000de3b0000
+    scrollPos: {x: 0, y: 31}
+    m_SelectedIDs: 803b0000
+    m_LastClickedID: 15232
+    m_ExpandedIDs: 00000000803b0000823b0000843b0000863b0000883b00008a3b00008c3b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -662,8 +663,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 6ef5ffff
-    m_LastClickedInstanceID: -2706
+    m_SelectedInstanceIDs: 38d7ffff
+    m_LastClickedInstanceID: -10440
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c623000094350000ae3a0000164800002e370000a4370000443900006c3a0000885600001265000000000000383f00004a39000046940000
     m_RenameOverlay:
@@ -714,8 +715,8 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 9
-    y: 652
+    x: 288
+    y: 651
     width: 1131
     height: 296
   m_ViewDataDictionary: {fileID: 0}
@@ -738,8 +739,8 @@ MonoBehaviour:
     y: 0
     width: 418
     height: 893
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -767,7 +768,7 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1262
+    x: 1420
     y: 75
     width: 417
     height: 872
