@@ -17,21 +17,21 @@ public class SoundLibrary : MonoBehaviour
 
     public AudioClip GetRandomLowDamageSound()
     {
-        return ZombieLowDamageSounds[Random.Range(0, ZombieWalkSounds.Count - 1)];
+        return ZombieLowDamageSounds[Random.Range(0, ZombieLowDamageSounds.Count - 1)];
 
     }
 
     public AudioClip GetRandomHighDamageSound()
     {
 
-        return ZombieHighDamageSounds[Random.Range(0, ZombieWalkSounds.Count - 1)];
+        return ZombieHighDamageSounds[Random.Range(0, ZombieHighDamageSounds.Count - 1)];
 
 
     }
 
     public AudioClip GetRandomDeathSound()
     {
-        return ZombieDeathSounds[Random.Range(0, ZombieWalkSounds.Count - 1)];
+        return ZombieDeathSounds[Random.Range(0, ZombieDeathSounds.Count - 1)];
 
     }
 }
