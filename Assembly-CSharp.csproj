@@ -53,6 +53,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\AIScripts\BasicZombie.cs" />
+     <Compile Include="Assets\AIScripts\SoundLibrary.cs" />
+     <Compile Include="Assets\AIScripts\SpawnManager.cs" />
      <Compile Include="Assets\Imported Assets\Gauntlet Assets\Prefabs\Basic Pulse\Crosshair.cs" />
      <Compile Include="Assets\Imported Assets\Gauntlet Assets\Prefabs\Basic Pulse\LookTowards.cs" />
      <Compile Include="Assets\Imported Assets\Gauntlet Assets\Prefabs\Basic Pulse\PulseBlast.cs" />

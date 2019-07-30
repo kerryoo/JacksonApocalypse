@@ -24,8 +24,6 @@ public class Shooter : MonoBehaviour
         if (Input.GetButton("Fire1") && fireAllowed)
         {
             GameObject vfx = Instantiate(projectile, crosshair.transform.position, crosshair.transform.rotation);
-            //vfx.transform.rotation = rotateToMouse.rotation;
-            Debug.Log(crosshair.transform.rotation);
 
             lastFire = Time.time;
         }

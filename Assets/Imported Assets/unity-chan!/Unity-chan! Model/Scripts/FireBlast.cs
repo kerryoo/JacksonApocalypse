@@ -17,7 +17,7 @@ public class FireBlast : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(transform.forward * movementSpeed * Time.deltaTime);
+        transform.Translate(Vector3.forward * Time.deltaTime * movementSpeed);
     }
 
     private void OnTriggerEnter(Collider other)
