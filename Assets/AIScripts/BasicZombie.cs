@@ -33,7 +33,8 @@ public class BasicZombie : MonoBehaviour
     private Vector3 rayDirection;
 
     float nextWalkingSound;
-    float timeBetweenGrunt = 7;
+    float timeBetweenGruntMin = 6;
+    float timeBetweenGruntMax = 9;
 
     private float nextDetection;
     private float detectionInterval = 2;
@@ -91,7 +92,7 @@ public class BasicZombie : MonoBehaviour
             if (nextWalkingSound <= Time.time)
             {
                 soundSource.PlayOneShot(soundLibrary.GetRandomWalkSound());
-                nextWalkingSound = Time.time + timeBetweenGrunt;
+                nextWalkingSound = Time.time + Random.Range(timeBetweenGruntMin, timeBetweenGruntMax);
             }
 
 
@@ -149,7 +150,6 @@ public class BasicZombie : MonoBehaviour
                 var player = hit.collider.GetComponent<Player>();
                 if (player != null)
                 {
-                    Debug.Log("Player detected");
                     playerFound = true;
                 }
             }

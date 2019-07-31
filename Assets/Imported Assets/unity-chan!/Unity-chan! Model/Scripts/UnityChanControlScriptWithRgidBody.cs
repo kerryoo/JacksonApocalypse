@@ -26,6 +26,7 @@ namespace UnityChan
     public class UnityChanControlScriptWithRgidBody : MonoBehaviour
 	{
         [SerializeField] MouseInput MouseControl;
+
         Crosshair crosshair;
         public Vector2 mouseInput;
         public float animSpeed = 1.5f;				// アニメーション再生速度設定
@@ -77,7 +78,6 @@ namespace UnityChan
 			// CapsuleColliderコンポーネントのHeight、Centerの初期値を保存する
 			orgColHight = col.height;
 			orgVectColCenter = col.center;
-            crosshair = GameObject.Find("Crosshair").GetComponent<Crosshair>();
 		}
 	
 	
@@ -102,7 +102,6 @@ namespace UnityChan
                 transform.Rotate(Vector3.up * mouseInput.x * MouseControl.Sensitivity.x);
             }
             
-            crosshair.Look(new Vector2(mouseInput.x * MouseControl.Sensitivity.x, mouseInput.y * MouseControl.Sensitivity.y));
 
 
             // 以下、キャラクターの移動処理

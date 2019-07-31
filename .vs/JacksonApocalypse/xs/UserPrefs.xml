@@ -1,13 +1,15 @@
 ﻿<Properties StartupConfiguration="{23B605A0-080C-C897-E5B6-FCC7D9F8018F}|Unit Tests">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Imported Assets/unity-chan!/Unity-chan! Model/Scripts/UnityChanControlScriptWithRgidBody.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Imported Assets/Gauntlet Assets/Prefabs/Basic Pulse/Crosshair.cs">
     <Files>
       <File FileName="Assets/AIScripts/BasicZombie.cs" Line="82" Column="1" />
       <File FileName="Assets/AIScripts/SpawnManager.cs" Line="1" Column="1" />
       <File FileName="Assets/AIScripts/SoundLibrary.cs" Line="14" Column="9" />
       <File FileName="Assets/Imported Assets/unity-chan!/Unity-chan! Model/Scripts/FaceUpdate.cs" Line="1" Column="1" />
-      <File FileName="Assets/Imported Assets/unity-chan!/Unity-chan! Model/Scripts/RotateToMouse.cs" Line="1" Column="1" />
-      <File FileName="Assets/Imported Assets/unity-chan!/Unity-chan! Model/Scripts/ThirdPersonCamera.cs" Line="34" Column="4" />
-      <File FileName="Assets/Imported Assets/unity-chan!/Unity-chan! Model/Scripts/UnityChanControlScriptWithRgidBody.cs" Line="1" Column="1" />
+      <File FileName="Assets/Imported Assets/unity-chan!/Unity-chan! Model/Scripts/RotateToMouse.cs" Line="1" Column="2" />
+      <File FileName="Assets/Imported Assets/unity-chan!/Unity-chan! Model/Scripts/ThirdPersonCamera.cs" Line="24" Column="40" />
+      <File FileName="Assets/Imported Assets/unity-chan!/Unity-chan! Model/Scripts/UnityChanControlScriptWithRgidBody.cs" Line="29" Column="1" />
+      <File FileName="Assets/Imported Assets/unity-chan!/Unity-chan! Model/Scripts/Shooter.cs" Line="27" Column="65" />
+      <File FileName="Assets/Imported Assets/Gauntlet Assets/Prefabs/Basic Pulse/Crosshair.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,7 +21,9 @@
                 <Node name="Imported Assets" expanded="True">
                   <Node name="Gauntlet Assets" expanded="True">
                     <Node name="Prefabs" expanded="True">
-                      <Node name="Meteor" expanded="True" />
+                      <Node name="Basic Pulse" expanded="True">
+                        <Node name="Crosshair.cs" selected="True" />
+                      </Node>
                     </Node>
                   </Node>
                   <Node name="Supercyan Character Pack Free Sample" expanded="True">
@@ -27,12 +31,11 @@
                   </Node>
                   <Node name="unity-chan!" expanded="True">
                     <Node name="Unity-chan! Model" expanded="True">
-                      <Node name="Scripts" expanded="True">
-                        <Node name="UnityChanControlScriptWithRgidBody.cs" selected="True" />
-                      </Node>
+                      <Node name="Scripts" expanded="True" />
                     </Node>
                   </Node>
                 </Node>
+                <Node name="Scripts" expanded="True" />
               </Node>
             </Node>
           </Node>

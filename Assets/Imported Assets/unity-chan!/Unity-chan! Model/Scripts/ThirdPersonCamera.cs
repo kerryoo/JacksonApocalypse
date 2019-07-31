@@ -15,6 +15,9 @@ namespace UnityChan
         [SerializeField] Player localPlayer;
         [SerializeField] Transform cameraLookTarget;
         [SerializeField] Transform aimingLookTarget;
+        [SerializeField] GameObject crosshair;
+
+        public GameObject crosshairObject;
 
         public float sensitivityVert;
         public float minimumVert = -45f;
@@ -38,6 +41,9 @@ namespace UnityChan
         {
             if (Input.GetButton("Fire2"))
             {
+                if(crosshairObject == null)
+                    crosshairObject = Instantiate(crosshair);
+
                 targetPosition = cameraLookTarget.position + localPlayer.transform.forward * (cameraOffset.z / 2) +
                     localPlayer.transform.right * aimingXOffset;
 
@@ -48,6 +54,9 @@ namespace UnityChan
 
             else
             {
+                if (crosshairObject != null)
+                    Destroy(crosshairObject);
+
                 targetPosition = cameraLookTarget.position + localPlayer.transform.forward * cameraOffset.z +
                     localPlayer.transform.up * cameraOffset.y +
                     localPlayer.transform.right * cameraOffset.x;
