@@ -14,11 +14,15 @@ namespace UnityChan
         [SerializeField] Vector3 cameraOffset;
         [SerializeField] Player localPlayer;
         [SerializeField] Transform cameraLookTarget;
+        [SerializeField] Transform aimingLookTarget;
 
         public float sensitivityVert;
         public float minimumVert = -45f;
         public float maximumVert = 45f;
         public float _rotationX;
+        private float aimingXOffset = 0.5f;
+        private Vector3 targetPosition;
+        private Quaternion targetRotation;
 
 		Transform standardPos;
         
@@ -32,11 +36,25 @@ namespace UnityChan
 
         private void Update()
         {
-            Vector3 targetPosition = cameraLookTarget.position + localPlayer.transform.forward * cameraOffset.z +
-                localPlayer.transform.up * cameraOffset.y +
-                localPlayer.transform.right * cameraOffset.x;
+            if (Input.GetButton("Fire2"))
+            {
+                targetPosition = cameraLookTarget.position + localPlayer.transform.forward * (cameraOffset.z / 2) +
+                    localPlayer.transform.right * aimingXOffset;
 
-            Quaternion targetRotation = Quaternion.LookRotation(cameraLookTarget.position - targetPosition, Vector3.up);
+
+                targetRotation = Quaternion.LookRotation(aimingLookTarget.position - targetPosition, Vector3.up);
+
+            }
+
+            else
+            {
+                targetPosition = cameraLookTarget.position + localPlayer.transform.forward * cameraOffset.z +
+                    localPlayer.transform.up * cameraOffset.y +
+                    localPlayer.transform.right * cameraOffset.x;
+                targetRotation = Quaternion.LookRotation(cameraLookTarget.position - targetPosition, Vector3.up);
+            }
+
+            
             transform.position = Vector3.Lerp(transform.position, targetPosition, smooth * Time.deltaTime);
             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, smooth * Time.deltaTime);
 
