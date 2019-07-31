@@ -5,8 +5,10 @@ using UnityEngine;
 public class BasicZombie : MonoBehaviour
 {
     [SerializeField] Animator animator;
-    [SerializeField] Animator zombieFSM;
+    Rigidbody zombieBody;
     [SerializeField] int maxHealth;
+
+
     private SoundLibrary soundLibrary;
     private AudioSource soundSource;
     private float movementSpeed = 1.0f;
@@ -15,25 +17,30 @@ public class BasicZombie : MonoBehaviour
     private float targetPositionTolerance = 3.0f;
     private float minX = -10;
     private float maxX = 10;
-    private float minZ;
-    private float maxZ;
+    private float minZ = -10;
+    private float maxZ = 10;
     private float yPosition = 10.25f;
     private Vector3 targetPosition;
 
     private Destructable destructable;
-    private int damageMinForLargeSound;
+    private int damageMinForLargeSound = 5;
     private bool alive;
+    private bool playerFound;
 
     public int fieldOfView = 45;
-    public int viewDistance = 10;
+    public int viewDistance = 4;
     private Transform playerTransform;
     private Vector3 rayDirection;
 
     float nextWalkingSound;
-    float timeBetweenGrunt;
+    float timeBetweenGrunt = 7;
 
     private float nextDetection;
-    private float detectionInterval;
+    private float detectionInterval = 2;
+
+    public delegate void OnPlayerFound();
+    public event OnPlayerFound AttackPlayer;
+
 
     public class Destructable
     {
@@ -52,19 +59,13 @@ public class BasicZombie : MonoBehaviour
 
     public virtual void Start()
     {
-        minX = -10f;
-        maxX = 10f;
-        minZ = -10f;
-        maxZ = 10f;
-        yPosition = 10.25f;
-        timeBetweenGrunt = 7;
-        damageMinForLargeSound = 5;
         destructable = new Destructable();
         destructable.healthRemaining = maxHealth;
         alive = true;
 
         soundLibrary = GameObject.Find("SoundLibrary").GetComponent<SoundLibrary>();
         soundSource = gameObject.GetComponent<AudioSource>();
+        zombieBody = gameObject.GetComponent<Rigidbody>();
         animator.SetBool("Walk", true);
 
         playerTransform = GameObject.Find("Player").transform;
@@ -76,15 +77,16 @@ public class BasicZombie : MonoBehaviour
     {
         if (alive)
         {
-            if (Vector3.Distance(targetPosition, transform.position) <= targetPositionTolerance)
-                GetNextPosition();
+            if (playerFound)
+            {
 
-            Quaternion targetRotation = Quaternion.LookRotation(targetPosition - transform.position);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+                JumpTowardsPlayer();
+            } else
+            {
+                WanderAimlessly();
+                
+            }
 
-            Vector3 nextPosition = new Vector3(0, 0, movementSpeed * Time.deltaTime);
-
-            transform.Translate(nextPosition);
 
             if (nextWalkingSound <= Time.time)
             {
@@ -100,6 +102,19 @@ public class BasicZombie : MonoBehaviour
             }
         }
 
+    }
+
+    public virtual void WanderAimlessly()
+    {
+        if (Vector3.Distance(targetPosition, transform.position) <= targetPositionTolerance)
+            GetNextPosition();
+
+        Quaternion targetRotation = Quaternion.LookRotation(targetPosition - transform.position);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+        Vector3 nextPosition = new Vector3(0, 0, movementSpeed * Time.deltaTime);
+
+        transform.Translate(nextPosition);
     }
 
     public virtual void GetNextPosition()
@@ -135,10 +150,18 @@ public class BasicZombie : MonoBehaviour
                 if (player != null)
                 {
                     Debug.Log("Player detected");
+                    playerFound = true;
                 }
             }
         }
 
+    }
+
+    private void JumpTowardsPlayer()
+    {
+        transform.LookAt(playerTransform);
+        zombieBody.AddForce(Vector3.up * 4, ForceMode.Impulse);
+        zombieBody.AddRelativeForce(Vector3.forward * 5, ForceMode.Impulse);
     }
 
 
