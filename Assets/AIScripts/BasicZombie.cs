@@ -6,38 +6,37 @@ public class BasicZombie : MonoBehaviour
 {
     [SerializeField] Animator animator;
     Rigidbody zombieBody;
-    [SerializeField] int maxHealth;
+    protected int maxHealth = 2;
 
+    protected SoundLibrary soundLibrary;
+    protected AudioSource soundSource;
+    protected float movementSpeed = 1.0f;
+    protected float rotationSpeed = 2.0f;
 
-    private SoundLibrary soundLibrary;
-    private AudioSource soundSource;
-    private float movementSpeed = 1.0f;
-    private float rotationSpeed = 2.0f;
+    protected float targetPositionTolerance = 3.0f;
+    protected float minX = -10;
+    protected float maxX = 10;
+    protected float minZ = -10;
+    protected float maxZ = 10;
+    protected float yPosition = 10.25f;
+    protected Vector3 targetPosition;
 
-    private float targetPositionTolerance = 3.0f;
-    private float minX = -10;
-    private float maxX = 10;
-    private float minZ = -10;
-    private float maxZ = 10;
-    private float yPosition = 10.25f;
-    private Vector3 targetPosition;
-
-    private Destructable destructable;
-    private int damageMinForLargeSound = 5;
-    private bool alive;
-    private bool playerFound;
+    protected Destructable destructable;
+    protected int damageMinForLargeSound = 5;
+    protected bool alive;
+    protected bool playerFound;
 
     public int fieldOfView = 45;
     public int viewDistance = 4;
-    private Transform playerTransform;
-    private Vector3 rayDirection;
+    protected Transform playerTransform;
+    protected Vector3 rayDirection;
 
-    float nextWalkingSound;
-    float timeBetweenGruntMin = 6;
-    float timeBetweenGruntMax = 9;
+    protected float nextWalkingSound;
+    protected float timeBetweenGruntMin = 6;
+    protected float timeBetweenGruntMax = 9;
 
-    private float nextDetection;
-    private float detectionInterval = 2;
+    protected float nextDetection;
+    protected float detectionInterval = 2;
 
     public delegate void OnPlayerFound();
     public event OnPlayerFound AttackPlayer;
@@ -80,12 +79,18 @@ public class BasicZombie : MonoBehaviour
         {
             if (playerFound)
             {
-
-                JumpTowardsPlayer();
+                Quaternion targetRotation = Quaternion.LookRotation(playerTransform.position - transform.position);
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+                transform.Translate(new Vector3(0, 0, movementSpeed * Time.deltaTime));
             } else
             {
                 WanderAimlessly();
-                
+                if (nextDetection <= Time.time)
+                {
+                    DetectAspect();
+                    nextDetection = Time.time + detectionInterval;
+                }
+
             }
 
 
@@ -95,13 +100,13 @@ public class BasicZombie : MonoBehaviour
                 nextWalkingSound = Time.time + Random.Range(timeBetweenGruntMin, timeBetweenGruntMax);
             }
 
-
-            if (nextDetection <= Time.time)
+            if (Input.GetKeyDown(KeyCode.P))
             {
-                DetectAspect();
-                nextDetection = Time.time + detectionInterval;
-            }
+                Debug.Log(destructable.healthRemaining);
         }
+
+        }
+
 
     }
 
@@ -138,7 +143,7 @@ public class BasicZombie : MonoBehaviour
         }
     }
 
-    private void DetectAspect()
+    public void DetectAspect()
     {
         RaycastHit hit;
         rayDirection = playerTransform.position - transform.position;
@@ -150,6 +155,7 @@ public class BasicZombie : MonoBehaviour
                 var player = hit.collider.GetComponent<Player>();
                 if (player != null)
                 {
+                    JumpTowardsPlayer();
                     playerFound = true;
                 }
             }

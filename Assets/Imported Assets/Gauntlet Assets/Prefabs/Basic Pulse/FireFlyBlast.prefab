@@ -184,8 +184,8 @@ MonoBehaviour:
   movementSpeed: 30
   explosion: {fileID: 1361385167086774304, guid: fa16e7d88be0741c1a1da09bb15a8020,
     type: 3}
-  damage: 0
   timeToLive: 2
+  damage: 0
 --- !u!1 &7238465871230675432
 GameObject:
   m_ObjectHideFlags: 0
