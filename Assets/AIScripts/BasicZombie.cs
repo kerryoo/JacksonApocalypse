@@ -5,6 +5,10 @@ using UnityEngine;
 public class BasicZombie : Zombie
 {
     [SerializeField] Animator animator;
+    private float attackRange;
+    private float originalMoveSpeed;
+    private bool attacking;
+
     public override void Start()
     {
         animator.SetBool("Walk", true);
@@ -15,12 +19,17 @@ public class BasicZombie : Zombie
     public override void Update()
     {
         base.Update();
+        if (Vector3.Distance(playerTransform.position, transform.position) <= attackRange && !attacking)
+        {
+            StartCoroutine(Attack());
+        }
     }
 
     public override void AssignStats()
     {
-        maxHealth = 2;
+        maxHealth = 10;
         movementSpeed = 1;
+        originalMoveSpeed = movementSpeed;
         rotationSpeed = 2;
         minX = minZ = -10;
         maxX = maxZ = 10;
@@ -30,11 +39,26 @@ public class BasicZombie : Zombie
         timeBetweenGruntMin = 6;
         timeBetweenGruntMax = 9;
         detectionInterval = 2;
+        attackRange = 1.5f;
+        damage = 10;
     }
 
     public override IEnumerator Die()
     {
         animator.SetBool("Dead", true);
         return base.Die();
+    }
+
+    IEnumerator Attack()
+    {
+        movementSpeed = 0;
+        animator.SetTrigger("Attack");
+        attacking = true;
+        playerStats.takeDamage(damage);
+        yield return new WaitForSeconds(1.5f);
+
+        movementSpeed = originalMoveSpeed;
+        attacking = false;
+
     }
 }

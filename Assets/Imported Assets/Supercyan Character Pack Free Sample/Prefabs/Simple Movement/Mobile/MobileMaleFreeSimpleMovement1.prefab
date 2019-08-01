@@ -1302,7 +1302,6 @@ GameObject:
   - component: {fileID: 54704068080705314}
   - component: {fileID: 136943970358897604}
   - component: {fileID: 95541723052833158}
-  - component: {fileID: 114882824916184338}
   m_Layer: 0
   m_Name: MobileMaleFreeSimpleMovement1
   m_TagString: Untagged
@@ -1375,21 +1374,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114882824916184338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1997953001238138}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32ca30c36b506c64aafa127f12f968fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_moveSpeed: 2
-  m_turnSpeed: 200
-  m_jumpForce: 4
-  m_animator: {fileID: 95541723052833158}
-  m_rigidBody: {fileID: 54704068080705314}
-  m_controlMode: 0

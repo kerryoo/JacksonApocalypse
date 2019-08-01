@@ -52,7 +52,7 @@ namespace UnityChan
 		// CapsuleColliderで設定されているコライダのHeiht、Centerの初期値を収める変数
 		private float orgColHight;
 		private Vector3 orgVectColCenter;
-		private Animator anim;							// キャラにアタッチされるアニメーターへの参照
+		public Animator anim;							// キャラにアタッチされるアニメーターへの参照
 		private AnimatorStateInfo currentBaseState;			// base layerで使われる、アニメーターの現在の状態の参照
 
 		private GameObject cameraObject;	// メインカメラへの参照

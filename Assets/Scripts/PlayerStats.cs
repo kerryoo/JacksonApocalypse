@@ -7,6 +7,8 @@ public class PlayerStats : MonoBehaviour
     public int maxHealth;
     public float rateOfFire;
     public int damageDealt;
+    public int healthRemaining;
+    public UnityChan.UnityChanControlScriptWithRgidBody unityChan;
 
     // Start is called before the first frame update
     void Start()
@@ -14,18 +16,40 @@ public class PlayerStats : MonoBehaviour
         maxHealth = 100;
         rateOfFire = 1f;
         damageDealt = 1;
+        healthRemaining = maxHealth;
+        unityChan = gameObject.GetComponent<UnityChan.UnityChanControlScriptWithRgidBody>();
 
     }
 
-    // Update is called once per frame
+    public void takeDamage(int amount)
+    {
+        if (amount >= healthRemaining)
+        {
+            StartCoroutine(Die());
+        }
+        else
+        {
+            unityChan.anim.SetTrigger("damage");
+            healthRemaining -= amount;
+        }
+        Debug.Log(healthRemaining);
+    }
+
+    private IEnumerator Die()
+    {
+        unityChan.anim.SetBool("Dead", true);
+        yield return new WaitForSeconds(1f);
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.O))
         {
-            rateOfFire /= 2;
-            damageDealt = 2;
+            Debug.Log(damageDealt);
         }
 
         
     }
+
+
 }

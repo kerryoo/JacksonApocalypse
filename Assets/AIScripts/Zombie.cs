@@ -12,8 +12,9 @@ public abstract class Zombie : MonoBehaviour
     protected int maxHealth;
     protected float movementSpeed;
     protected float rotationSpeed;
+    protected int damage;
 
-    protected float targetPositionTolerance;
+    protected float targetPositionTolerance = 3;
     protected float minX;
     protected float maxX;
     protected float minZ;
@@ -29,6 +30,7 @@ public abstract class Zombie : MonoBehaviour
     public int fieldOfView;
     public int viewDistance;
     protected Transform playerTransform;
+    protected PlayerStats playerStats;
     protected Vector3 rayDirection;
 
     protected float nextWalkingSound;
@@ -59,16 +61,18 @@ public abstract class Zombie : MonoBehaviour
 
     public virtual void Start()
     {
+
+        AssignStats();
         destructable = new Destructable();
         destructable.healthRemaining = maxHealth;
         alive = true;
-        AssignStats();
 
         soundLibrary = GameObject.Find("SoundLibrary").GetComponent<SoundLibrary>();
         soundSource = gameObject.GetComponent<AudioSource>();
         zombieBody = gameObject.GetComponent<Rigidbody>();
 
         playerTransform = GameObject.Find("Player").transform;
+        playerStats = playerTransform.GetComponent<PlayerStats>();
 
         GetNextPosition();
     }
@@ -109,7 +113,9 @@ public abstract class Zombie : MonoBehaviour
     public virtual void WanderAimlessly()
     {
         if (Vector3.Distance(targetPosition, transform.position) <= targetPositionTolerance)
+        {
             GetNextPosition();
+        }
 
         Quaternion targetRotation = Quaternion.LookRotation(targetPosition - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
@@ -150,10 +156,7 @@ public abstract class Zombie : MonoBehaviour
             {
                 var player = hit.collider.GetComponent<Player>();
                 if (player != null)
-                {
-                    JumpTowardsPlayer();
                     playerFound = true;
-                }
             }
         }
 
@@ -161,12 +164,7 @@ public abstract class Zombie : MonoBehaviour
 
     public abstract void AssignStats();
 
-    public virtual void JumpTowardsPlayer()
-    {
-        transform.LookAt(playerTransform);
-        zombieBody.AddForce(Vector3.up * 4, ForceMode.Impulse);
-        zombieBody.AddRelativeForce(Vector3.forward * 5, ForceMode.Impulse);
-    }
+    
 
 
     public virtual IEnumerator Die()
