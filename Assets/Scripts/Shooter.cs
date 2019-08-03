@@ -21,21 +21,24 @@ public class Shooter : MonoBehaviour
     }
 
     void Update()
-    { 
-        fireAllowed = Time.time > lastFire + playerStats.rateOfFire;
-        if (Input.GetButton("Fire2") && Input.GetButton("Fire1") && fireAllowed)
+    {
+        if (!playerStats.flinch)
         {
-            Vector3 point = new Vector3(_camera.pixelWidth / 2, _camera.pixelHeight / 2, 0);
-            Ray ray = _camera.ScreenPointToRay(point);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
+            fireAllowed = Time.time > lastFire + playerStats.rateOfFire;
+            if (Input.GetButton("Fire2") && Input.GetButton("Fire1") && fireAllowed)
             {
-                Instantiate(projectile, transform.position, Quaternion.LookRotation(hit.point - transform.position));
+                Vector3 point = new Vector3(_camera.pixelWidth / 2, _camera.pixelHeight / 2, 0);
+                Ray ray = _camera.ScreenPointToRay(point);
+                RaycastHit hit;
 
+                if (Physics.Raycast(ray, out hit))
+                {
+                    Instantiate(projectile, transform.position, Quaternion.LookRotation(hit.point - transform.position));
+
+                }
+
+                lastFire = Time.time;
             }
-
-            lastFire = Time.time;
         }
 
 

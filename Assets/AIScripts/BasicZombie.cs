@@ -54,8 +54,8 @@ public class BasicZombie : Zombie
         movementSpeed = 0;
         animator.SetTrigger("Attack");
         attacking = true;
-        playerStats.takeDamage(damage);
-        yield return new WaitForSeconds(1.5f);
+        playerStats.handleDamage(damage);
+        yield return new WaitForSeconds(2.5f);
 
         movementSpeed = originalMoveSpeed;
         attacking = false;

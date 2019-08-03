@@ -1,15 +1,16 @@
 ﻿<Properties StartupConfiguration="{23B605A0-080C-C897-E5B6-FCC7D9F8018F}|Unit Tests">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UnityChanControlScriptWithRgidBody.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/AIScripts/SpawnManager.cs">
     <Files>
       <File FileName="Assets/Scripts/Player.cs" Line="16" Column="33" />
-      <File FileName="Assets/Scripts/PlayerStats.cs" Line="19" Column="93" />
-      <File FileName="Assets/Scripts/Shooter.cs" Line="22" Column="1" />
-      <File FileName="Assets/Scripts/FireBlast.cs" Line="22" Column="79" />
+      <File FileName="Assets/Scripts/PlayerStats.cs" Line="56" Column="44" />
+      <File FileName="Assets/Scripts/Shooter.cs" Line="42" Column="10" />
+      <File FileName="Assets/Scripts/FireBlast.cs" />
       <File FileName="Assets/AIScripts/FastZombie.cs" Line="119" Column="6" />
-      <File FileName="Assets/AIScripts/Zombie.cs" Line="31" Column="25" />
-      <File FileName="Assets/AIScripts/BasicZombie.cs" Line="55" Column="26" />
-      <File FileName="Assets/Scripts/ThirdPersonCamera.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/UnityChanControlScriptWithRgidBody.cs" Line="1" Column="1" />
+      <File FileName="Assets/AIScripts/Zombie.cs" Line="15" Column="26" />
+      <File FileName="Assets/AIScripts/BasicZombie.cs" Line="57" Column="33" />
+      <File FileName="Assets/Scripts/ThirdPersonCamera.cs" />
+      <File FileName="Assets/Scripts/UnityChanControlScriptWithRgidBody.cs" Line="82" Column="66" />
+      <File FileName="Assets/AIScripts/SpawnManager.cs" Line="6" Column="2" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,18 +18,13 @@
           <Node name="JacksonApocalypse" expanded="True">
             <Node name="Assembly-CSharp" expanded="True">
               <Node name="Assets" expanded="True">
-                <Node name="AIScripts" expanded="True" />
-                <Node name="Scripts" expanded="True">
-                  <Node name="UnityChanControlScriptWithRgidBody.cs" selected="True" />
+                <Node name="AIScripts" expanded="True">
+                  <Node name="SpawnManager.cs" selected="True" />
                 </Node>
+                <Node name="Scripts" expanded="True" />
               </Node>
             </Node>
           </Node>
-        </State>
-      </Pad>
-      <Pad Id="ClassPad">
-        <State name="__root__">
-          <Node name="JacksonApocalypse" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>

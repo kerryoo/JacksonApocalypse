@@ -8,6 +8,7 @@ public class PlayerStats : MonoBehaviour
     public float rateOfFire;
     public int damageDealt;
     public int healthRemaining;
+    public bool flinch;
     public UnityChan.UnityChanControlScriptWithRgidBody unityChan;
 
     // Start is called before the first frame update
@@ -21,24 +22,40 @@ public class PlayerStats : MonoBehaviour
 
     }
 
-    public void takeDamage(int amount)
+    public void handleDamage(int amount)
     {
-        if (amount >= healthRemaining)
+        if (!flinch)
         {
-            StartCoroutine(Die());
+            if (amount >= healthRemaining)
+            {
+                StartCoroutine(Die());
+            }
+            else
+            {
+                StartCoroutine(takeDamage(amount));
+            }
         }
-        else
-        {
-            unityChan.anim.SetTrigger("damage");
-            healthRemaining -= amount;
-        }
-        Debug.Log(healthRemaining);
     }
 
     private IEnumerator Die()
     {
+        flinch = true;
         unityChan.anim.SetBool("Dead", true);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(10f);
+        flinch = false;
+    }
+
+    private IEnumerator takeDamage(int amount)
+    {
+        yield return new WaitForSeconds(0.3f);
+        unityChan.anim.speed = 2;
+        unityChan.anim.SetTrigger("Damage");
+        healthRemaining -= amount;
+
+        flinch = true;
+        yield return new WaitForSeconds(0.6f);
+        unityChan.anim.speed = 1;
+        flinch = false;
     }
 
     void Update()
@@ -47,8 +64,6 @@ public class PlayerStats : MonoBehaviour
         {
             Debug.Log(damageDealt);
         }
-
-        
     }
 
 
